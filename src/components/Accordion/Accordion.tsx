@@ -24,13 +24,13 @@ type AccordionTitlePropsType = {
 }
 function AccordionTitle({text, toggleCollapsed}: AccordionTitlePropsType) {
   // console.log(toggleCollapsed)
-  const changeCollapse = () => {
-    if (text === "Images") {
-      return toggleCollapsed()
-    }
-    return null
-  }
-  return <h3 onClick={changeCollapse}>{text}</h3>
+  // const changeCollapse = () => {
+  //   if (text === "Images") {
+  //     return toggleCollapsed()
+  //   }
+  //   return null
+  // }
+  return <h3 onClick={toggleCollapsed}>{text}</h3>
 }
 
 function AccordionBody() {
