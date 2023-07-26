@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import Rating from "./components/Rating/Rating";
+import { OnOff } from './components/OnOff/OnOff';
 
 function App() {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState<boolean>(false)
   const toggleCollapsed = () => setCollapsed(value => !value)
   return (
     <div>
@@ -14,10 +15,11 @@ function App() {
       <PageTitle title={'This is APP component'}/>
       Article 1
       <Rating value={3}/>
-      <Accordion title={'Menu'} collapsed={collapsed} toggleCollapsed={toggleCollapsed}/>
-      <Accordion title={'Images'} collapsed={collapsed} toggleCollapsed={toggleCollapsed}/>
+      <Accordion title={'Menu'} collapsed={collapsed} />
+      <Accordion title={'Images'} collapsed={collapsed} />
       Article 2
       <Rating value={4}/>
+      <OnOff collapsed={collapsed} toggleCollapsed={toggleCollapsed}/>
     </div>
   );
 }

@@ -2,27 +2,24 @@ import React from "react";
 
 type AccordionPropsType = {
   title: string,
-  collapsed: boolean,
-  toggleCollapsed: any
+  collapsed?: boolean
 }
 
-function Accordion({title, collapsed, toggleCollapsed}: AccordionPropsType) {
-  if (collapsed) {
+function Accordion({title, collapsed}: AccordionPropsType) {
+
     return (
       <div>
-        <AccordionTitle text={title} toggleCollapsed={toggleCollapsed}/>
-        <AccordionBody />
+        <AccordionTitle text={title} />
+        { !collapsed && <AccordionBody /> }
       </div>
     )
-  }
-  return <AccordionTitle text={title} toggleCollapsed={toggleCollapsed}/>
+
 }
 
 type AccordionTitlePropsType = {
-  text: string,
-  toggleCollapsed: any
+  text: string
 }
-function AccordionTitle({text, toggleCollapsed}: AccordionTitlePropsType) {
+function AccordionTitle({text, }: AccordionTitlePropsType) {
   // console.log(toggleCollapsed)
   // const changeCollapse = () => {
   //   if (text === "Images") {
@@ -30,7 +27,7 @@ function AccordionTitle({text, toggleCollapsed}: AccordionTitlePropsType) {
   //   }
   //   return null
   // }
-  return <h3 onClick={toggleCollapsed}>{text}</h3>
+  return <h3>{text}</h3>
 }
 
 function AccordionBody() {
