@@ -8,7 +8,7 @@ function UncontrolledAccordion({title}: AccordionPropsType) {
 
   const [collapsed, setCollapsed] = useState(false);
 
-  const toggleCollapsed = () => setCollapsed(value => !value)
+  const toggleCollapsed = () => setCollapsed(!collapsed)
 
   return (
       <div>
@@ -24,13 +24,7 @@ type AccordionTitlePropsType = {
   text: string
 }
 function AccordionTitle({text}: AccordionTitlePropsType) {
-  // console.log(toggleCollapsed)
-  // const changeCollapse = () => {
-  //   if (text === "Images") {
-  //     return toggleCollapsed()
-  //   }
-  //   return null
-  // }
+
   return <h3>{text}</h3>
 }
 
