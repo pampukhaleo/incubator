@@ -3,6 +3,7 @@ import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import Rating from "./components/Rating/Rating";
 import { OnOff } from './components/OnOff/OnOff';
+import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
 
 function App() {
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -15,8 +16,9 @@ function App() {
       <PageTitle title={'This is APP component'}/>
       Article 1
       <Rating value={3}/>
-      <Accordion title={'Menu'} collapsed={collapsed} />
-      <Accordion title={'Images'} collapsed={collapsed} />
+      {/*<Accordion title={'Menu'} collapsed={collapsed} />*/}
+      {/*<Accordion title={'Images'} collapsed={collapsed} />*/}
+      <UncontrolledAccordion title={'Menu'}/>
       Article 2
       <Rating value={4}/>
       <OnOff />
