@@ -35,8 +35,8 @@ function Star({selected, changeValue, starNumber}: StarPropsType) {
   }
 
   return selected
-    ? <span onClick={() => onClickHandler(starNumber)}><b>star</b></span>
-    : <span onClick={() => onClickHandler(starNumber)}>star</span>
+    ? <span onClick={() => onClickHandler(starNumber)} onDoubleClick={() => onClickHandler(0)}><b>star</b></span>
+    : <span onClick={() => onClickHandler(starNumber)} onDoubleClick={() => onClickHandler(0)}>star</span>
 }
 
 export default UncontrolledRating
