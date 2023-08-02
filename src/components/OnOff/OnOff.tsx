@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './onOff.css'
 
 type OnOffPropTypes = {
-  collapsed: boolean,
-  toggleCollapsed: () => void
+
 }
 
-export const OnOff = ({ collapsed, toggleCollapsed }: OnOffPropTypes) => {
+export const OnOff = ({}: OnOffPropTypes) => {
+
+  const [on, setOn] = useState<boolean>(false)
+
+  const toggleCollapsed = () => setOn(value => !value)
+
   return (
     <div>
-      <button className={ `btn ${ collapsed && 'green' }` }
+      <button className={ `btn ${ on && 'green' }` }
               onClick={ toggleCollapsed }
-              disabled={ !collapsed }>On
+              disabled={ on }>On
       </button>
-      <button className={ `btn ${ !collapsed && 'red' }` }
+      <button className={ `btn ${ !on && 'red' }` }
               onClick={ toggleCollapsed }
-              disabled={ collapsed }>Off
+              disabled={ !on }>Off
       </button>
-      <div className={ `circle green ${ !collapsed && 'red' }` }></div>
+      <div className={ `circle green ${ !on && 'red' }` }></div>
     </div>
   )
 }
