@@ -4,6 +4,7 @@ import Accordion from "./components/Accordion/Accordion";
 import Rating from "./components/Rating/Rating";
 import { OnOff } from './components/OnOff/OnOff';
 import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
+import UncontrolledRating from './components/UncontrolledRating/UncontrolledRating';
 
 function App() {
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -15,12 +16,13 @@ function App() {
       <input type="date"/>
       <PageTitle title={'This is APP component'}/>
       Article 1
-      <Rating value={3}/>
+      {/*<Rating value={3}/>*/}
       {/*<Accordion title={'Menu'} collapsed={collapsed} />*/}
       {/*<Accordion title={'Images'} collapsed={collapsed} />*/}
       <UncontrolledAccordion title={'Menu'}/>
       Article 2
-      <Rating value={4}/>
+      {/*<Rating value={4}/>*/}
+      <UncontrolledRating />
       <OnOff />
     </div>
   );
