@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Accordion from './components/Accordion/Accordion';
 import { Rating, RatingValueType } from './components/Rating/Rating';
-import { UncontrolledOnOff } from './components/UncontrolledOnOff/UncontrolledOnOff';
+import { OnOff } from './components/OnOff/OnOff';
 
 function App() {
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -23,7 +23,8 @@ function App() {
       Article 2
       <Rating value={ ratingValue } onClick={ setRatingValue }/>
       {/*<UncontrolledRating />*/ }
-      <UncontrolledOnOff/>
+      <OnOff on={ !collapsed } onClick={ toggleCollapsed }/>
+      {/*<UncontrolledOnOff/>*/ }
     </div>
   );
 }
