@@ -7,13 +7,13 @@ export default {
   component: OnOff,
 };
 
-const onClickCallback = action('OnClick')
+const onClickCallBack = action('onClick')
 
-export const On = () => <OnOff on={true} onClick={ onClickCallback }/>
-export const Off = () => <OnOff on={false} onClick={ onClickCallback }/>
+export const On = () => <OnOff on={ true } onClick={ onClickCallBack }/>
+export const Off = () => <OnOff on={ false } onClick={ onClickCallBack }/>
 export const OnOffToggle = () => {
   const [on, setOn] = useState(false);
 
-  return <OnOff on={on} onClick={ () => setOn(!on) }/>
+  return <OnOff on={ on } onClick={ () => setOn(!on) }/>
 }
 

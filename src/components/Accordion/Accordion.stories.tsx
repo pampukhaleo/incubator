@@ -1,6 +1,4 @@
-import type { Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-
 import { Accordion } from './Accordion';
 import React, { useState } from 'react';
 
@@ -9,14 +7,14 @@ export default {
   component: Accordion,
 };
 
-const onClickCallback = action('OnClick')
+const onClickCallBack = action('onClick')
 
 export const CollapsedAccordion = () => {
-  return <Accordion title={ 'Collapsed Accordion' } collapsed={ true } onClick={onClickCallback}/>
+  return <Accordion title={ 'Collapsed Accordion' } collapsed={ true } onClick={ onClickCallBack }/>
 }
 
 export const OpenedAccordion = () => {
-  return <Accordion title={ 'Opened Accordion' } collapsed={ false } onClick={onClickCallback}/>
+  return <Accordion title={ 'Opened Accordion' } collapsed={ false } onClick={ onClickCallBack }/>
 }
 
 export const ToggleAccordion = () => {
@@ -24,5 +22,5 @@ export const ToggleAccordion = () => {
 
   return <Accordion title={ 'Toggle Accordion' }
                     collapsed={ collapsed }
-                    onClick={() => setCollapsed(!collapsed)}/>
+                    onClick={ () => setCollapsed(!collapsed) }/>
 }

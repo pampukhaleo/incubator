@@ -11,11 +11,11 @@ export const OnOff = ({ on, onClick }: OnOffPropTypes) => {
   return (
     <div>
       <button className={ `btn ${ on && 'green' }` }
-              onClick={ onClick }
+              onClick={ (e) => onClick() }
               disabled={ on }>On
       </button>
       <button className={ `btn ${ !on && 'red' }` }
-              onClick={ onClick }
+              onClick={ (e) => onClick() }
               disabled={ !on }>Off
       </button>
       <div className={ `circle green ${ !on && 'red' }` }></div>
