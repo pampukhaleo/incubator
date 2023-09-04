@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './onOff.css'
+import './uncontrolledOnOff.css'
 
 type OnOffPropTypes = {
 
 }
 
-export const OnOff = ({}: OnOffPropTypes) => {
+export const UncontrolledOnOff = ({}: OnOffPropTypes) => {
 
   const [on, setOn] = useState<boolean>(false)
 
