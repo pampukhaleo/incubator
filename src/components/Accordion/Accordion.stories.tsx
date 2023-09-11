@@ -10,17 +10,24 @@ export default {
 const onClickCallBack = action('onClick')
 
 export const CollapsedAccordion = () => {
-  return <Accordion title={ 'Collapsed Accordion' } collapsed={ true } onClick={ onClickCallBack }/>
+  return <Accordion title={ 'Collapsed Select' }
+                    collapsed={ true }
+                    onClick={ onClickCallBack }
+                    items={ ['Leo', 'Anastasia', 'Frank'] }/>
 }
 
 export const OpenedAccordion = () => {
-  return <Accordion title={ 'Opened Accordion' } collapsed={ false } onClick={ onClickCallBack }/>
+  return <Accordion title={ 'Opened Select' }
+                    collapsed={ false }
+                    onClick={ onClickCallBack }
+                    items={ ['Leo', 'Anastasia', 'Frank'] }/>
 }
 
 export const ToggleAccordion = () => {
   const [collapsed, setCollapsed] = useState(false);
 
-  return <Accordion title={ 'Toggle Accordion' }
+  return <Accordion title={ 'Toggle Select' }
                     collapsed={ collapsed }
-                    onClick={ () => setCollapsed(!collapsed) }/>
+                    onClick={ () => setCollapsed(!collapsed) }
+                    items={ ['Leo', 'Anastasia', 'Frank'] }/>
 }
