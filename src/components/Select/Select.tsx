@@ -1,36 +1,46 @@
-import React, { SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
+import s from './select.module.css'
 
 type ItemsForSelectPT = {
   title: string
-  id: number
+  value: string
 }
 
 type SelectPropsType = {
   itemsForSelect: ItemsForSelectPT[]
+  value: string | null
+  onChange: (value: any) => void
 }
 
-export const Select = ({ itemsForSelect }: SelectPropsType) => {
+export const Select = ({ itemsForSelect, value, onChange }: SelectPropsType) => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
-  const [storedItem, setStoredItem] = useState<ItemsForSelectPT | undefined>(itemsForSelect[0]);
+  const [hovered, setHovered] = useState(value);
 
-  const filteredItems = (id: number) => {
-    const result = itemsForSelect.find(el => el.id === id)
-    setStoredItem(result)
-    setCollapsed(false)
+  const selectedItem = itemsForSelect.find(el => el.value === value)
+
+  const toggleCollapsed = () => setCollapsed(!collapsed)
+
+  const onItemClick = (value: string) => {
+    toggleCollapsed()
+    onChange(value)
   }
 
   return (
     <>
-      <div onClick={ () => {
+      <div className={ s.select } onClick={ () => {
         setCollapsed(true)
       } }>
-        { storedItem?.title }
+        { selectedItem ? selectedItem.title : 'Nothing Selected' }
       </div>
       {
         collapsed &&
-        <ul>
+        <ul className={ s.items }>
           { itemsForSelect.map(item => {
-            return <li key={ item.id } onClick={ () => filteredItems(item.id) }>{ item.title }</li>
+            return <li key={ item.value }
+                       className={ hovered === item.value ? s.hovered : '' }
+                       onClick={ () => onItemClick(item.value) }
+                       onMouseEnter={ () => setHovered(item.value) }
+            >{ item.title }</li>
           }) }
         </ul>
       }

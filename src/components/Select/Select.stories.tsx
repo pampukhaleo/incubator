@@ -9,12 +9,32 @@ export default {
 
 const onClickCallBack = action('onClick')
 
-export const ToggleSelect = () => {
-  return <Select itemsForSelect={ [
-    { title: '1 item', id: 1 },
-    { title: '2 item', id: 2 },
-    { title: '3 item', id: 3 },
-  ] }/>
+export const BaseExample = () => {
+  const [value, setValue] = useState<string>('1');
+
+  return <Select value={ value }
+                 onChange={ setValue }
+                 itemsForSelect={
+                   [
+                     { title: 'Kyiv', value: '1' },
+                     { title: 'Lviv', value: '2' },
+                     { title: 'Kharkiv', value: '3' },
+                   ]
+                 }/>
+}
+
+export const NoValue = () => {
+  const [value, setValue] = useState(null);
+
+  return <Select value={ value }
+                 onChange={ setValue }
+                 itemsForSelect={
+                   [
+                     { title: 'Kyiv', value: '1' },
+                     { title: 'Lviv', value: '2' },
+                     { title: 'Kharkiv', value: '3' },
+                   ]
+                 }/>
 }
 
 // export const OpenedAccordion = () => {

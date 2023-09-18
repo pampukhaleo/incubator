@@ -10,6 +10,8 @@ function App() {
   const [ratingValue, setRatingValue] = useState<RatingValueType>(0);
   const [items, setItems] = useState<Array<string>>(['Leo', 'Anastasia', 'Frank']);
 
+  const [selectValue, setSelectValue] = useState<string>('1');
+
   const toggleCollapsed = () => setCollapsed(value => !value)
 
   return (
@@ -30,13 +32,15 @@ function App() {
       {/*<UncontrolledRating />*/ }
       <OnOff on={ !collapsed } onClick={ toggleCollapsed }/>
       {/*<UncontrolledOnOff/>*/ }
-      <Select itemsForSelect={
-        [
-          { title: '1 item', id: 1 },
-          { title: '2 item', id: 2 },
-          { title: '3 item', id: 3 },
-        ]
-      }/>
+      <Select value={ selectValue }
+              onChange={ setSelectValue }
+              itemsForSelect={
+                [
+                  { title: 'Kyiv', value: '1' },
+                  { title: 'Lviv', value: '2' },
+                  { title: 'Kharkiv', value: '3' },
+                ]
+              }/>
     </div>
   );
 }
