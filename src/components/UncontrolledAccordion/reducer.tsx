@@ -9,7 +9,6 @@ export type StateType = {
 export const TOGGLE_COLLAPSED = 'TOGGLE_COLLAPSED'
 
 export const reducer = (state: StateType, action: ActionType): StateType => {
-  console.log(state)
   switch (action.type) {
     case TOGGLE_COLLAPSED:
       return {
