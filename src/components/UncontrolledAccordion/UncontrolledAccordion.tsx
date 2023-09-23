@@ -1,41 +1,25 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
+import { reducer, TOGGLE_COLLAPSED } from "./reducer";
 
 type AccordionPropsType = {
   title: string
 }
 
-type ActionType = {
-  type: string
-}
-
-const TOGGLE_COLLAPSED = 'TOGGLE_COLLAPSED'
-
-const reducer = (state: boolean, action: ActionType) => {
-  switch (action.type) {
-    case TOGGLE_COLLAPSED:
-      return !state
-    default:
-      throw new Error('Bad action type')
-  }
-}
-
 export const UncontrolledAccordion = ({ title }: AccordionPropsType) => {
 
   // const [collapsed, setCollapsed] = useState(false);
-  const [collapsed, dispatch] = useReducer(reducer, false);
+  const [state, dispatch] = useReducer(reducer, { collapsed: false });
 
   // const toggleCollapsed = () => setCollapsed(!collapsed)
-
   return (
     <div>
       <AccordionTitle text={ title }
                       toggleCollapsed={ () => dispatch({
                         type: TOGGLE_COLLAPSED
                       }) }/>
-      { !collapsed && <AccordionBody/> }
+      { !state.collapsed && <AccordionBody/> }
     </div>
   )
-
 }
 
 type AccordionTitlePropsType = {
