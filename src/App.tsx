@@ -4,6 +4,7 @@ import { Accordion } from './components/Accordion/Accordion';
 import { Rating, RatingValueType } from './components/Rating/Rating';
 import { OnOff } from './components/OnOff/OnOff';
 import { Select } from './components/Select/Select';
+import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
 
 function App() {
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -26,7 +27,7 @@ function App() {
                  collapsed={ collapsed }
                  onClick={ toggleCollapsed }
                  items={ items }/>
-      {/*<UncontrolledAccordion title={ 'Menu' }/>*/ }
+      <UncontrolledAccordion title={ 'UncontrolledAccordion' }/>
       Article 2
       <Rating value={ ratingValue } onClick={ setRatingValue }/>
       {/*<UncontrolledRating />*/ }
